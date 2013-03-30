@@ -13,6 +13,7 @@ Modernizr.load([{
 }]);
 
 function blend() {
+  $('body').css('backgroundColor', $('#background').val());
   var cur = Color($('#current').val()).rgbArray();
   var bg = Color($('#background').val()).rgbArray();
   var opacity = parseInt($('#opacity').val(), 10) / 100;
