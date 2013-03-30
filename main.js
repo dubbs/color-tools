@@ -16,8 +16,12 @@ function blend() {
   var g = blend_single(cur[1], bg[1], opacity);
   var b = blend_single(cur[2], bg[2], opacity);
   var n = Color().rgb(r, g, b);
-  console.log(n.rgbString());
-  $('#result').val(n.hexString());
+  $('#rgba').html(n.alpha(opacity).rgbaString());
+  $('#opacity-val').html(opacity*100 + "%");
+
+  $('#original').css('backgroundColor', $('#current').val());
+  $('#new-opacity').css('backgroundColor', n.alpha(opacity).rgbaString());
+  $('#new').css('backgroundColor', n.alpha(1).hexString());
 }
 
 function blend_single(cur, bg, opacity) {

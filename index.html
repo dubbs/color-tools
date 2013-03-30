@@ -4,17 +4,27 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>color</title>
 <style>
+body { background: #666; }
 label { display: block }
+#grid { overflow:hidden; background: #fff; width: 600px; margin: 0 auto; }
+#original, #new-opacity, #new { float: left; height: 200px; width: 200px; }
 </style>
 <script src="modernizr-latest.js"></script>
 <script src="jquery-1.9.1.min.js"></script>
 </head>
-<body>
-<label>Current: <input id="current" type="color" value="#ff0000" /></label>
+<body onload="blend();">
+<label>Current: <input id="current" type="color" value="#C38B47" onchange="blend();" /></label>
 <label>Background: <input id="background" type="color" value="#ffffff" /></label>
-<label>Opacity: <input id="opacity" type="range" min="0" max="100" value="0"></label>
+<label>Opacity: <input id="opacity" type="range" min="0" max="100" value="75" onchange="blend();"><span id="opacity-val"></span></label>
 <button onclick="blend();">DO IT</button>
-<label>Result: <input id="result" type="color"></label>
+<label>Result:
+  <span id="rgba"></span>
+</label>
+<div id="grid">
+  <div id="original"></div>
+  <div id="new-opacity"></div>
+  <div id="new"></div>
+</div>
 <script src="bundle.js"></script>
 </body>
 </html>
