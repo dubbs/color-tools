@@ -10,11 +10,15 @@ label { display: block }
   width: 600px;
   margin: 0 auto;
   overflow:hidden;
-  background: #fff;
+}
+#grid p span {
+  display: inline-block;
+  margin: 0 10px;
 }
 #grid > div {
   width: 200px;
   float: left;
+  background: #fff;
 }
 #grid > div > .picker {
   height: 200px;
@@ -25,15 +29,14 @@ label { display: block }
 <script src="jquery-1.9.1.min.js"></script>
 </head>
 <body onload="blend();">
-<label>Current: <input id="current" type="color" value="#C38B47" onchange="blend();" /></label>
-<label>Background: <input id="background" type="color" value="#ffffff" /></label>
-<label>Opacity: 
-<label>Result:
-  <span id="rgba"></span>
-</label>
 
-<input id="opacity" type="range" min="0" max="100" value="75" onchange="blend();"><span id="opacity-val"></span>
 <div id="grid">
+  <p>
+    <input id="opacity" type="range" min="0" max="100" value="75" onchange="blend();">
+    <span id="opacity-val"></span>
+    <span>Current:</span><input id="current" type="color" value="#C38B47" onchange="blend();" />
+    <span>Background:</span><input id="background" type="color" value="#ffffff" />
+  </p>
   <div id="original">
     <div class="picker"></div>
     <div class="hex"></div>

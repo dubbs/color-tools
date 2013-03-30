@@ -1,3 +1,7 @@
+// http://en.wikipedia.org/wiki/Alpha_compositing#Alpha_blending
+// https://dvcs.w3.org/hg/FXTF/rawfile/tip/compositing/index.html#blending
+//
+
 var Color = require('color');
 
 Modernizr.load([{
