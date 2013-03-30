@@ -19,9 +19,23 @@ function blend() {
   $('#rgba').html(n.alpha(opacity).rgbaString());
   $('#opacity-val').html(opacity*100 + "%");
 
-  $('#original').css('backgroundColor', $('#current').val());
-  $('#new-opacity').css('backgroundColor', n.alpha(opacity).rgbaString());
-  $('#new').css('backgroundColor', n.alpha(1).hexString());
+  var currentColor = Color($('#current').val()).alpha(1);
+  $('#original .picker').css('backgroundColor', currentColor.hexString());
+  $('#original .hex').html(currentColor.hexString());
+  $('#original .rgb').html(currentColor.rgbString());
+  $('#original .hsl').html(currentColor.hslString());
+
+  var newColor = Color().rgb(r, g, b).alpha(opacity);
+  $('#new-opacity .picker').css('backgroundColor', newColor.rgbaString());
+  $('#new-opacity .hex').html(newColor.hexString());
+  $('#new-opacity .rgb').html(newColor.rgbString());
+  $('#new-opacity .hsl').html(newColor.hslString());
+
+  newColor = Color().rgb(r, g, b).alpha(1);
+  $('#new .picker').css('backgroundColor', newColor.hexString());
+  $('#new .hex').html(newColor.hexString());
+  $('#new .rgb').html(newColor.rgbString());
+  $('#new .hsl').html(newColor.hslString());
 }
 
 function blend_single(cur, bg, opacity) {
