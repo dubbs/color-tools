@@ -61,4 +61,14 @@ function blend_single(cur, bg, opacity) {
   return (cur - ((1 - opacity) * bg)) / opacity;
 }
 
+$(function () {
+  $('body [title]').qtip({
+    position: {
+      my: 'bottom center',
+      at: 'top center'
+
+    }
+  });
+});
+
 window.blend = blend;

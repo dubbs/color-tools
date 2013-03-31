@@ -48,17 +48,17 @@ label { display: block }
   width:100%;
 }
 </style>
+<link rel="stylesheet" href="jquery.qtip.min.css" />
 <script src="modernizr-latest.js"></script>
 <script src="jquery-1.9.1.min.js"></script>
+<script src="jquery.qtip.min.js"></script>
 </head>
 <body onload="blend();">
 
 <div id="grid">
-  <p>
-  </p>
   <div id="original">
     <div class="input">
-      <input id="current" type="color" value="#C38B47" onchange="blend();" />
+      <input id="current" type="color" value="#C38B47" onchange="blend();" title="result color" />
     </div>
     <div class="picker">
       <div class="img"></div>
@@ -70,7 +70,7 @@ label { display: block }
   </div>
   <div id="new-opacity">
     <div class="input">
-      <input id="background" type="color" value="#FFD796" onchange="blend();" />
+      <input id="background" type="color" value="#FFD796" onchange="blend();" title="backdrop color" />
     </div>
     <div class="picker">
       <div class="img"></div>
@@ -82,12 +82,12 @@ label { display: block }
   </div>
   <div id="new">
     <div class="input">
-      <input id="opacity" type="range" min="0" max="100" value="80" onchange="blend();">
+      <input id="opacity" type="range" min="0" max="100" value="80" onchange="blend();" title="backdrop alpha">
       <span id="opacity-val"></span>
     </div>
     <div class="picker">
       <div class="img"></div>
-      <div class="bg"></div>
+      <div class="bg" title="source color"></div>
     </div>
     <div class="hex"></div>
     <div class="rgb"></div>
