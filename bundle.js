@@ -14,8 +14,6 @@ Modernizr.load([{
   }
 }]);
 
-console.log(Modernizr.inputtypes);
-
 function blend() {
   var bgVal = $('#background').val();
   var bgHex = (bgVal.indexOf('#') === -1) ? '#' + bgVal : bgVal ;
@@ -435,7 +433,7 @@ Color.prototype.setChannel = function(space, index, val) {
    return this;
 }
 
-},{"color-string":3,"color-convert":4}],4:[function(require,module,exports){
+},{"color-convert":3,"color-string":4}],3:[function(require,module,exports){
 var conversions = require("./conversions");
 
 var exports = {};
@@ -967,7 +965,7 @@ for (var key in cssKeywords) {
   reverseKeywords[JSON.stringify(cssKeywords[key])] = key;
 }
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 /* MIT license */
 var convert = require("color-convert");
 
@@ -1146,5 +1144,5 @@ function hexDouble(num) {
   return (str.length < 2) ? "0" + str : str;
 }
 
-},{"color-convert":4}]},{},[1])
+},{"color-convert":3}]},{},[1])
 ;
