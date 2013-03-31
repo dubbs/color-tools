@@ -9,15 +9,22 @@ Modernizr.load([{
 }]);
 
 function blend() {
-  var bgColor = Color($('#background').val());
+  var bgVal = $('#background').val();
+  var bgHex = (bgVal.indexOf('#') === -1) ? '#' + bgVal : bgVal ;
+  var curVal = $('#current').val();
+  var curHex = (curVal.indexOf('#') === -1) ? '#' + curVal : curVal ;
+
+
+  var bgColor = Color(bgHex);
   $('body').css('backgroundColor', bgColor.rgbString());
   if (bgColor.light()) {
     $('body').css('color', bgColor.darken(0.75).rgbString());
   } else {
     $('body').css('color', bgColor.negate().lighten(0.35).rgbString());
   }
-  var cur = Color($('#current').val()).rgbArray();
-  var bg = Color($('#background').val()).rgbArray();
+  var cur = Color(curHex).rgbArray();
+
+  var bg = Color(bgHex).rgbArray();
   var opacity = parseInt($('#opacity').val(), 10) / 100;
   var r = blend_single(cur[0], bg[0], opacity);
   var g = blend_single(cur[1], bg[1], opacity);
@@ -26,7 +33,7 @@ function blend() {
   $('#rgba').html(n.alpha(opacity).rgbaString());
   $('#opacity-val').html(Math.round(opacity*100) + "%");
 
-  var currentColor = Color($('#current').val()).alpha(1);
+  var currentColor = Color(curHex).alpha(1);
   $('#original .picker .bg').css('backgroundColor', currentColor.hexString());
   $('#original .hex').html(currentColor.hexString());
   $('#original .rgb').html(currentColor.rgbString());
