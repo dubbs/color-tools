@@ -4,6 +4,10 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>color</title>
 <style>
+body {
+  font-family: Inconsolata, monospace;
+  font-size: 15px;
+}
 label { display: block }
 #grid {
   width: 600px;
@@ -18,6 +22,9 @@ label { display: block }
   width: 200px;
   float: left;
   text-align: center;
+}
+#grid > div > div {
+  margin: 10px 0;
 }
 #grid > div > .picker {
   height: 200px;
@@ -45,7 +52,7 @@ label { display: block }
     <input id="opacity" type="range" min="0" max="100" value="80" onchange="blend();">
     <span id="opacity-val"></span>
     <span>Current:</span><input id="current" type="color" value="#C38B47" onchange="blend();" />
-    <span>Background:</span><input id="background" type="color" value="#ffffff" onchange="blend();" />
+    <span>Background:</span><input id="background" type="color" value="#FFD796" onchange="blend();" />
   </p>
   <div id="original">
     <div class="picker">
