@@ -22,6 +22,17 @@ label { display: block }
 #grid > div > .picker {
   height: 200px;
   width: 200px;
+  position:relative;
+}
+#new-opacity .img {
+  background-image: url(tux.png);
+  background-size: 100% 100%;
+}
+#grid .img,
+#grid .bg {
+  position:absolute;
+  height:100%;
+  width:100%;
 }
 </style>
 <script src="modernizr-latest.js"></script>
@@ -31,25 +42,34 @@ label { display: block }
 
 <div id="grid">
   <p>
-    <input id="opacity" type="range" min="0" max="100" value="75" onchange="blend();">
+    <input id="opacity" type="range" min="0" max="100" value="80" onchange="blend();">
     <span id="opacity-val"></span>
     <span>Current:</span><input id="current" type="color" value="#C38B47" onchange="blend();" />
     <span>Background:</span><input id="background" type="color" value="#ffffff" onchange="blend();" />
   </p>
   <div id="original">
-    <div class="picker"></div>
+    <div class="picker">
+      <div class="img"></div>
+      <div class="bg"></div>
+    </div>
     <div class="hex"></div>
     <div class="rgb"></div>
     <div class="hsl"></div>
   </div>
   <div id="new-opacity">
-    <div class="picker"></div>
+    <div class="picker">
+      <div class="img"></div>
+      <div class="bg"></div>
+    </div>
     <div class="hex"></div>
     <div class="rgb"></div>
     <div class="hsl"></div>
   </div>
   <div id="new">
-    <div class="picker"></div>
+    <div class="picker">
+      <div class="img"></div>
+      <div class="bg"></div>
+    </div>
     <div class="hex"></div>
     <div class="rgb"></div>
     <div class="hsl"></div>
