@@ -11,14 +11,17 @@ body {
 label { display: block }
 #grid {
   width: 600px;
-  margin: 0 auto;
+  margin: 5% auto;
   overflow:hidden;
+}
+#grid .input {
+  height: 30px;
 }
 #grid p span {
   display: inline-block;
   margin: 0 10px;
 }
-#grid p input {
+#grid p input[type="color"] {
   max-width: 60px;
 }
 #grid > div {
@@ -52,12 +55,11 @@ label { display: block }
 
 <div id="grid">
   <p>
-    <input id="opacity" type="range" min="0" max="100" value="80" onchange="blend();">
-    <span id="opacity-val"></span>
-    <span>Current:</span><input id="current" type="color" value="#C38B47" onchange="blend();" />
-    <span>Background:</span><input id="background" type="color" value="#FFD796" onchange="blend();" />
   </p>
   <div id="original">
+    <div class="input">
+      <input id="current" type="color" value="#C38B47" onchange="blend();" />
+    </div>
     <div class="picker">
       <div class="img"></div>
       <div class="bg"></div>
@@ -67,6 +69,9 @@ label { display: block }
     <div class="hsl"></div>
   </div>
   <div id="new-opacity">
+    <div class="input">
+      <input id="background" type="color" value="#FFD796" onchange="blend();" />
+    </div>
     <div class="picker">
       <div class="img"></div>
       <div class="bg"></div>
@@ -76,6 +81,10 @@ label { display: block }
     <div class="hsl"></div>
   </div>
   <div id="new">
+    <div class="input">
+      <input id="opacity" type="range" min="0" max="100" value="80" onchange="blend();">
+      <span id="opacity-val"></span>
+    </div>
     <div class="picker">
       <div class="img"></div>
       <div class="bg"></div>
