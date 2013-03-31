@@ -1,10 +1,3 @@
-// http://en.wikipedia.org/wiki/Alpha_compositing#Alpha_blending
-// https://dvcs.w3.org/hg/FXTF/rawfile/tip/compositing/index.html#blending
-// white = 333
-// mid-top = 000
-// mid-bottom = fff
-// bottom = ccc
-
 var Color = require('color');
 
 Modernizr.load([{
@@ -14,7 +7,6 @@ Modernizr.load([{
     jscolor.init();
   }
 }]);
-
 
 function blend() {
   var bgColor = Color($('#background').val());
@@ -32,7 +24,7 @@ function blend() {
   var b = blend_single(cur[2], bg[2], opacity);
   var n = Color().rgb(r, g, b);
   $('#rgba').html(n.alpha(opacity).rgbaString());
-  $('#opacity-val').html(opacity*100 + "%");
+  $('#opacity-val').html(Math.round(opacity*100) + "%");
 
   var currentColor = Color($('#current').val()).alpha(1);
   $('#original .picker').css('backgroundColor', currentColor.hexString());
@@ -54,7 +46,6 @@ function blend() {
 }
 
 function blend_single(cur, bg, opacity) {
-  //console.log("("+cur+" - ((1 - "+opacity+") * "+bg+")) / "+opacity+"");
   return (cur - ((1 - opacity) * bg)) / opacity;
 }
 
