@@ -6,6 +6,11 @@ Modernizr.load([{
   callback: function(id, testResult) {
     jscolor.init();
   }
+},{
+  test: Modernizr.inputtypes.range,
+  nope: 'html5slider.js',
+  callback: function(id, testResult) {
+  }
 }]);
 
 function blend() {
