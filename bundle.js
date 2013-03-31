@@ -1,7 +1,10 @@
 ;(function(e,t,n){function i(n,s){if(!t[n]){if(!e[n]){var o=typeof require=="function"&&require;if(!s&&o)return o(n,!0);if(r)return r(n,!0);throw new Error("Cannot find module '"+n+"'")}var u=t[n]={exports:{}};e[n][0](function(t){var r=e[n][1][t];return i(r?r:t)},u,u.exports)}return t[n].exports}var r=typeof require=="function"&&require;for(var s=0;s<n.length;s++)i(n[s]);return i})({1:[function(require,module,exports){
 // http://en.wikipedia.org/wiki/Alpha_compositing#Alpha_blending
 // https://dvcs.w3.org/hg/FXTF/rawfile/tip/compositing/index.html#blending
-//
+// white = 333
+// mid-top = 000
+// mid-bottom = fff
+// bottom = ccc
 
 var Color = require('color');
 
@@ -13,8 +16,15 @@ Modernizr.load([{
   }
 }]);
 
+
 function blend() {
-  $('body').css('backgroundColor', $('#background').val());
+  var bgColor = Color($('#background').val());
+  $('body').css('backgroundColor', bgColor.rgbString());
+  if (bgColor.light()) {
+    $('body').css('color', bgColor.darken(0.75).rgbString());
+  } else {
+    $('body').css('color', bgColor.negate().lighten(0.35).rgbString());
+  }
   var cur = Color($('#current').val()).rgbArray();
   var bg = Color($('#background').val()).rgbArray();
   var opacity = parseInt($('#opacity').val(), 10) / 100;
